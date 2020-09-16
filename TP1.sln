@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TP1", "TP1\TP1.csproj", "{0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TP2Linq", "TP2Linq\TP2Linq.csproj", "{F3422519-9339-444E-AB11-5749D1836605}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TP3Razor", "TP3Razor\TP3Razor.csproj", "{B705ADA1-DF21-4C8F-945A-FD3CEA7847E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{F3422519-9339-444E-AB11-5749D1836605}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3422519-9339-444E-AB11-5749D1836605}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3422519-9339-444E-AB11-5749D1836605}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B705ADA1-DF21-4C8F-945A-FD3CEA7847E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B705ADA1-DF21-4C8F-945A-FD3CEA7847E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B705ADA1-DF21-4C8F-945A-FD3CEA7847E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B705ADA1-DF21-4C8F-945A-FD3CEA7847E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
