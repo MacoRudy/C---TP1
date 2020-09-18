@@ -125,7 +125,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\FakeDb.cs" />
     <Compile Include="Models\PizzaCreateViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -167,6 +166,10 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Pizza\Index.cshtml" />
     <Content Include="Views\Pizza\Create.cshtml" />
+    <Content Include="Views\Pizza\Edit.cshtml" />
+    <Content Include="Views\Pizza\Delete.cshtml" />
+    <Content Include="Views\Pizza\Details.cshtml" />
+    <Content Include="Views\Shared\_PizzaDisplay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

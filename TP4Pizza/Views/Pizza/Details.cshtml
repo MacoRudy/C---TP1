@@ -1,0 +1,20 @@
+﻿@model TP4Pizza.Models.PizzaCreateViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+@*@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()*@
+
+    <div class="form-horizontal">
+        @Html.Partial("_PizzaDisplay")
+    </div>
+@*}*@
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Pizza.Id }, new { @class = "btn btn-default btn-primary" }) |
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default btn-primary" })
+    </p>
+
