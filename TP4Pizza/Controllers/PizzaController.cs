@@ -32,6 +32,8 @@ namespace TP4Pizza.Controllers
             PizzaCreateViewModel pizzaVM = new PizzaCreateViewModel();
             pizzaVM.Ingredients = FakeDb.Instance.ListeIngredients;
             pizzaVM.Pate = FakeDb.Instance.ListePates;
+            //Random rand = new Random();
+            //pizzaVM.IdPate = FakeDb.Instance.ListePates[rand.Next(3)].Id;
             return View(pizzaVM);
         }
 
@@ -90,6 +92,7 @@ namespace TP4Pizza.Controllers
         {
             try
             {
+
                 // recuperation de la pizza de la liste
                 Pizza pizzaEdite = FakeDb.Instance.ListePizzas.FirstOrDefault(x => x.Id == id);
                 // recuperation de la pate selectionnée
@@ -113,6 +116,7 @@ namespace TP4Pizza.Controllers
         // GET: Pizza/Delete/5
         public ActionResult Delete(int id)
         {
+
             PizzaCreateViewModel pizzaVM = new PizzaCreateViewModel();
             pizzaVM.Pizza = FakeDb.Instance.ListePizzas.FirstOrDefault(x => x.Id == id);
             return View(pizzaVM);

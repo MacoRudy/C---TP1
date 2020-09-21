@@ -37,7 +37,7 @@ namespace BO.Validator
         }
         public override string FormatErrorMessage(string name)
         {
-            return "Ce combo de d'ingredients existe deja";
+            return "Ce combo de d'ingredients existe déjà";
         }
 
 
