@@ -12,15 +12,19 @@ namespace BO.Validator
         public override bool IsValid(object value)
         {
 
-            bool result = false;
+            bool result = true;
             if (value != null)
             {
-                Pizza pizza = value as Pizza;
-                if (!FakeDb.Instance.ListePizzas.Contains(pizza))
+                string nomPizza = value as string;
+
+                foreach (var item in FakeDb.Instance.ListePizzas)
                 {
-                    result = true;
+                    if (item.Nom.ToLower().Equals(nomPizza.ToLower()))
+                    {
+                        result = false;
+                    }
                 }
-                            }
+            }
             return result;
         }
 

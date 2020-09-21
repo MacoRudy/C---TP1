@@ -15,6 +15,7 @@ namespace TP4Pizza.Models
         public List<Ingredient> Ingredients { get; set; } = new List<Ingredient>();
 
         [IngredientValidator]
+        [UniqueIngredientValidator]
         public List<int> IdsIngredient { get; set; } = new List<int>();
 
         public List<Pate> Pate { get; set; } = new List<Pate>();

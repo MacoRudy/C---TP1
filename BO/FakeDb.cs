@@ -31,7 +31,7 @@ namespace BO
         }
 
 
-        public static List<Ingredient> IngredientsDisponibles => new List<Ingredient>
+        private List<Ingredient> IngredientsDisponibles => new List<Ingredient>
         {
             new Ingredient{Id=1,Nom="Mozzarella"},
             new Ingredient{Id=2,Nom="Jambon"},
@@ -43,7 +43,7 @@ namespace BO
             new Ingredient{Id=8,Nom="Poulet"}
         };
 
-        public static List<Pate> PatesDisponibles => new List<Pate>
+        private List<Pate> PatesDisponibles => new List<Pate>
         {
             new Pate{ Id=1,Nom="Pate fine, base crême"},
             new Pate{ Id=2,Nom="Pate fine, base tomate"},

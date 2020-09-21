@@ -48,6 +48,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validator\IngredientValidator.cs" />
     <Compile Include="Validator\NomPizzaValidator.cs" />
+    <Compile Include="Validator\UniqueIngredientValidator.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
