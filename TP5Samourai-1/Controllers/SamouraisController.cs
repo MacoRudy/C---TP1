@@ -47,19 +47,22 @@ namespace TP5Samourai.Controllers
         }
 
         // POST: Samourais/Create
-       
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Force,Nom")] Samourai samourai)
+        public ActionResult Create(SamouraiVM samouraiVM)
         {
             if (ModelState.IsValid)
             {
-                db.Samourais.Add(samourai);
+
+                samouraiVM.Samourai.Arme = db.Armes.FirstOrDefault(x => x.Id == samouraiVM.IdArme);
+
+                db.Samourais.Add(samouraiVM.Samourai);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(samourai);
+            return View(samouraiVM.Samourai);
         }
 
         // GET: Samourais/Edit/5
@@ -70,16 +73,23 @@ namespace TP5Samourai.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Samourai samourai = db.Samourais.Find(id);
+            SamouraiVM vm = new SamouraiVM();
             if (samourai == null)
             {
                 return HttpNotFound();
             }
-            return View(samourai);
+            else
+            {
+                vm.Samourai = samourai;
+                vm.ListeArmes = db.Armes.ToList();
+                vm.IdArme = samourai.Arme.Id;
+            }
+
+
+            return View(vm);
         }
 
         // POST: Samourais/Edit/5
-        // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
-        // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Force,Nom")] Samourai samourai)
