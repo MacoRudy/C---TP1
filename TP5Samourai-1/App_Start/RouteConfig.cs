@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace TP5Samourai
+namespace TP5Samourai_1
 {
     public class RouteConfig
     {

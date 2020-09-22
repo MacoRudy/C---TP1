@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Les informations générales relatives à un assembly dépendent de 
 // l’ensemble d’attributs suivant. Changez les valeurs de ces attributs pour modifier les informations
 // associées à un assembly.
-[assembly: AssemblyTitle("TP5Samourai")]
+[assembly: AssemblyTitle("TP5Samourai_1")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("TP5Samourai")]
+[assembly: AssemblyProduct("TP5Samourai_1")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Le GUID suivant est pour l’ID de la typelib si ce projet est exposé à COM
-[assembly: Guid("88e83e37-e0ca-4562-a3ca-1bc3749f744c")]
+[assembly: Guid("2ecdbfbe-7458-4adc-84ec-6021ec21da01")]
 
 // Les informations de version pour un assembly se composent des quatre valeurs suivantes :
 //

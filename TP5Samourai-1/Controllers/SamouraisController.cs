@@ -41,7 +41,7 @@ namespace TP5Samourai.Controllers
         public ActionResult Create()
         {
             SamouraiVM vm = new SamouraiVM();
-            vm.listeArmes = db.Armes.ToList();
+            vm.ListeArmes = db.Armes.ToList();
 
             return View(vm);
         }
