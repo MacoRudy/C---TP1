@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using BOSamourai;
 using TP5Samourai.Data;
+using TP5Samourai.Models;
 
 namespace TP5Samourai.Controllers
 {
@@ -39,12 +40,14 @@ namespace TP5Samourai.Controllers
         // GET: Samourais/Create
         public ActionResult Create()
         {
-            return View();
+            SamouraiVM vm = new SamouraiVM();
+            vm.listeArmes = db.Armes.ToList();
+
+            return View(vm);
         }
 
         // POST: Samourais/Create
-        // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
-        // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Force,Nom")] Samourai samourai)
