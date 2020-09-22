@@ -10,6 +10,6 @@ namespace TP5Samourai.Models
     {
         public Samourai Samourai { get; set; }
         public List<Arme> ListeArmes { get; set; }
-        public int IdArme { get; set; }
+        public int? IdArme { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BOSamourai;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -6,7 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using BOSamourai;
+
 using TP5Samourai.Data;
 using TP5Samourai.Models;
 
@@ -82,7 +83,11 @@ namespace TP5Samourai.Controllers
             {
                 vm.Samourai = samourai;
                 vm.ListeArmes = db.Armes.ToList();
-                vm.IdArme = samourai.Arme.Id;
+                if (samourai.Arme != null)
+                {
+                    vm.IdArme = samourai.Arme.Id;
+                }
+
             }
 
 
@@ -92,15 +97,20 @@ namespace TP5Samourai.Controllers
         // POST: Samourais/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Force,Nom")] Samourai samourai)
+        public ActionResult Edit(SamouraiVM vm)
         {
             if (ModelState.IsValid)
             {
+                Samourai samourai = db.Samourais.FirstOrDefault(x => x.Id == vm.Samourai.Id);
+                var arme = samourai.Arme;
+                samourai.Arme = db.Armes.FirstOrDefault(x => x.Id == vm.IdArme);
+                samourai.Force = vm.Samourai.Force;
+                samourai.Nom = vm.Samourai.Nom;
                 db.Entry(samourai).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(samourai);
+            return View(vm);
         }
 
         // GET: Samourais/Delete/5

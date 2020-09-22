@@ -43,9 +43,7 @@ namespace TP5Samourai.Controllers
         }
 
         // POST: Armes/Create
-        // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
-        // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+       [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Nom,Degats")] Arme arme)
         {
@@ -75,8 +73,6 @@ namespace TP5Samourai.Controllers
         }
 
         // POST: Armes/Edit/5
-        // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
-        // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Nom,Degats")] Arme arme)
@@ -111,6 +107,15 @@ namespace TP5Samourai.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Arme arme = db.Armes.Find(id);
+            foreach (var samourai in db.Samourais)
+            {
+                if (samourai.Arme != null && samourai.Arme.Id == id)
+                {
+                    samourai.Arme = null;
+                    db.Entry(samourai).State = EntityState.Modified;
+                  
+                }
+            }
             db.Armes.Remove(arme);
             db.SaveChanges();
             return RedirectToAction("Index");
