@@ -4,9 +4,9 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<h2>Suppression de l'Arme @Html.DisplayFor(model  => model.Nom)  </h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Etes vous sûr de vouloir supprimer l'Arme?</h3>
 <div>
     <h4>Arme</h4>
     <hr />
@@ -34,8 +34,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default btn-primary" /> |
-            @Html.ActionLink("Back to List", "Index",null, new { @class = "btn btn-default btn-success" })
+            <input type="submit" value="Suppression" class="btn btn-default btn-primary" /> |
+            @Html.ActionLink("Retour à la liste", "Index",null, new { @class = "btn btn-default btn-success" })
         </div>
     }
 </div>

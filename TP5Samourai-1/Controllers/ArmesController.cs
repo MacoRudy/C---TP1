@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using BOSamourai;
 using TP5Samourai.Data;
 
@@ -18,6 +19,7 @@ namespace TP5Samourai.Controllers
         // GET: Armes
         public ActionResult Index()
         {
+            var truc = TempData["aze"];
             return View(db.Armes.ToList());
         }
 
@@ -93,6 +95,7 @@ namespace TP5Samourai.Controllers
             if (db.Samourais.Any(x => x.Arme.Id == id))
             {
                 ModelState.AddModelError("Nom", "Veuillez détacher l'arme avant de l'effacer");
+                TempData["aze"] = ModelState;
                 return RedirectToAction("Index");
             }
             if (id == null)

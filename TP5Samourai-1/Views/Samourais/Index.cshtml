@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Liste des Samouraï</h2>
 
 <p>
     @Html.ActionLink("Ajouter un nouveau Samouraï", "Create", null, new { @class = "btn btn-default btn-success" })
@@ -55,9 +55,9 @@
 
 
     <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-default btn-primary" }) |
+        @Html.ActionLink("Edition", "Edit", new { id = item.Id }, new { @class = "btn btn-default btn-primary" }) |
         @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-default btn-primary" }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-default btn-primary" })
+        @Html.ActionLink("Suppression", "Delete", new { id = item.Id }, new { @class = "btn btn-default btn-primary" })
     </td>
 </tr>
     }
