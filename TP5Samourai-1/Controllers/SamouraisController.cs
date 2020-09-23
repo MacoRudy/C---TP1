@@ -42,7 +42,10 @@ namespace TP5Samourai.Controllers
         public ActionResult Create()
         {
             SamouraiVM vm = new SamouraiVM();
-            vm.ListeArmes = db.Armes.ToList();
+            vm.ListeArmes = db.Armes.Where(x => !db.Samourais.Select(y => y.Arme.Id).Contains(x.Id)).ToList();
+            vm.ListeArtMartiaux = db.ArtMartials.ToList();
+
+           
 
             return View(vm);
         }
@@ -57,6 +60,11 @@ namespace TP5Samourai.Controllers
             {
 
                 samouraiVM.Samourai.Arme = db.Armes.FirstOrDefault(x => x.Id == samouraiVM.IdArme);
+
+                foreach (var item in samouraiVM.IdArtMartials)
+                {
+                    samouraiVM.Samourai.ArtMartials.Add(db.ArtMartials.FirstOrDefault(x => x.Id == item));
+                }
 
                 db.Samourais.Add(samouraiVM.Samourai);
                 db.SaveChanges();
@@ -82,15 +90,25 @@ namespace TP5Samourai.Controllers
             else
             {
                 vm.Samourai = samourai;
-                vm.ListeArmes = db.Armes.ToList();
+                vm.ListeArtMartiaux = db.ArtMartials.ToList();
+                // Recuperation de la liste des armes non associées a un Samourai
+                vm.ListeArmes = db.Armes.Where(x => !db.Samourais.Select(y => y.Arme.Id).Contains(x.Id)).ToList();
+                // Ajout de sa propre arme a la liste
+                if (vm.Samourai.Arme != null)
+                {
+                    vm.ListeArmes.Add(vm.Samourai.Arme);
+                }
+               
                 if (samourai.Arme != null)
                 {
                     vm.IdArme = samourai.Arme.Id;
                 }
+                if (samourai.ArtMartials.Count() > 0)
+                {
+                    vm.IdArtMartials = samourai.ArtMartials.Select(x => x.Id).ToList();
+                }
 
             }
-
-
             return View(vm);
         }
 
@@ -103,6 +121,15 @@ namespace TP5Samourai.Controllers
             {
                 Samourai samourai = db.Samourais.FirstOrDefault(x => x.Id == vm.Samourai.Id);
                 var arme = samourai.Arme;
+                List<ArtMartial> liste = samourai.ArtMartials;
+
+                samourai.ArtMartials = db.ArtMartials.Where(x => vm.IdArtMartials.Contains(x.Id)).ToList();
+                //foreach (var item in vm.IdArtMartials)
+                //{
+                //    samourai.ArtMartials.Add(db.ArtMartials.FirstOrDefault(x => x.Id == item));
+                //}
+                
+
                 samourai.Arme = db.Armes.FirstOrDefault(x => x.Id == vm.IdArme);
                 samourai.Force = vm.Samourai.Force;
                 samourai.Nom = vm.Samourai.Nom;

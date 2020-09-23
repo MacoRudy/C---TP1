@@ -33,10 +33,19 @@
         <dd>
             @Html.DisplayFor(model => model.Arme.Nom)
         </dd>
-
+        <dt>
+            @Html.DisplayNameFor(model => model.ArtMartials)
+        </dt>
+        <dd>
+            @foreach (var item in Model.ArtMartials)
+            {
+                <p> @Html.DisplayFor(model => item.Nom)</p>
+            }
+        </dd>
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">

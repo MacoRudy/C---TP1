@@ -127,12 +127,34 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ArmesController.cs" />
+    <Compile Include="Controllers\ArtMartialsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SamouraisController.cs" />
     <Compile Include="Data\TP5SamouraiContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009230711165_mig1.cs" />
+    <Compile Include="Migrations\202009230711165_mig1.Designer.cs">
+      <DependentUpon>202009230711165_mig1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009230718220_mig2.cs" />
+    <Compile Include="Migrations\202009230718220_mig2.Designer.cs">
+      <DependentUpon>202009230718220_mig2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009231022017_mig3.cs" />
+    <Compile Include="Migrations\202009231022017_mig3.Designer.cs">
+      <DependentUpon>202009231022017_mig3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009231030178_mig4.cs" />
+    <Compile Include="Migrations\202009231030178_mig4.Designer.cs">
+      <DependentUpon>202009231030178_mig4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009231136337_mig5.cs" />
+    <Compile Include="Migrations\202009231136337_mig5.Designer.cs">
+      <DependentUpon>202009231136337_mig5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\SamouraiVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -182,6 +204,11 @@
     <Content Include="Views\Samourais\Details.cshtml" />
     <Content Include="Views\Samourais\Edit.cshtml" />
     <Content Include="Views\Samourais\Index.cshtml" />
+    <Content Include="Views\ArtMartials\Create.cshtml" />
+    <Content Include="Views\ArtMartials\Delete.cshtml" />
+    <Content Include="Views\ArtMartials\Details.cshtml" />
+    <Content Include="Views\ArtMartials\Edit.cshtml" />
+    <Content Include="Views\ArtMartials\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -204,6 +231,23 @@
       <Project>{0bba0441-0ab7-4112-946b-521c9cec7367}</Project>
       <Name>BOSamourai</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202009230711165_mig1.resx">
+      <DependentUpon>202009230711165_mig1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009230718220_mig2.resx">
+      <DependentUpon>202009230718220_mig2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009231022017_mig3.resx">
+      <DependentUpon>202009231022017_mig3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009231030178_mig4.resx">
+      <DependentUpon>202009231030178_mig4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009231136337_mig5.resx">
+      <DependentUpon>202009231136337_mig5.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BOSamourai;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace TP5Samourai.Data
         // automatically whenever you change your model schema, please use data migrations.
         // For more information refer to the documentation:
         // http://msdn.microsoft.com/en-us/data/jj591621.aspx
-    
+
         public TP5SamouraiContext() : base("name=TP5SamouraiContext")
         {
         }
@@ -22,5 +23,13 @@ namespace TP5Samourai.Data
         public System.Data.Entity.DbSet<BOSamourai.Arme> Armes { get; set; }
 
         public System.Data.Entity.DbSet<BOSamourai.Samourai> Samourais { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Samourai>().HasOptional(s => s.Arme).WithOptionalPrincipal();
+            modelBuilder.Entity<Samourai>().HasMany(s => s.ArtMartials).WithMany();
+        }
+
+        public System.Data.Entity.DbSet<BOSamourai.ArtMartial> ArtMartials { get; set; }
     }
 }
